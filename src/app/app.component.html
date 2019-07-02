@@ -1,4 +1,10 @@
 
-<app-component1 [data]="data | async"></app-component1>
-<router-outlet (activate)='onActivate($event)'></router-outlet>
+<p>children component</p>
+<div class="children-component">
+  <app-component1 [data]="data | async"></app-component1>
+</div>
 
+<p>component in route</p>
+<div class="component-in-route">
+  <router-outlet (activate)='onActivate($event)'></router-outlet>
+</div>

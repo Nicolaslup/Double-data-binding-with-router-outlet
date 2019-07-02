@@ -14,13 +14,13 @@ export class AppComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // Initilization data
+    // Initialization data
     this.data = of({value: ''});
   }
 
-  // Output from router-outlet run after module has been loaded.
+  // Output from router-outlet run after route has been loaded.
   onActivate(e: Component2Component) {
-    // Observe subject from my component2
+    // Observe Subject
     this.data = e.dataToInput.asObservable();
   }
 }

@@ -1,3 +1,14 @@
 p {
   font-family: Lato;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.children-component, .component-in-route {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
