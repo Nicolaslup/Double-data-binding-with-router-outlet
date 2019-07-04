@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Observable, of, Subject } from 'rxjs';
 import { Component2Component } from './component2/component2.component';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-root',
@@ -10,18 +12,24 @@ import { Component2Component } from './component2/component2.component';
 export class AppComponent implements OnInit {
 
   public data: Observable<{value: string}>;
+  public data2: Observable<{value: string}>;
+  public data3: Observable<{value: string}>;
 
-  constructor() {}
+  constructor(
+    public cd: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    // Initialization data
-    this.data = of({value: ''});
   }
 
-  // Output from router-outlet run after route has been loaded.
+  // Output from router-outlet run after module has been loaded.
   onActivate(e: Component2Component) {
-    // Observe Subject
+    // Observe subject from my component2
     this.data = e.dataToInput.asObservable();
+    this.data2 = e.dataToInput.asObservable();
+    // this.data3 = e.dataToInputSimple;
+    this.data3 = e.dataToInput;
+    this.cd.detectChanges();
   }
 }
 

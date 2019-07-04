@@ -1,1 +1,13 @@
-<input *ngIf="data" type="text" placeholder="your text here" [(ngModel)]="data.value">
+<div>double data binding witout action</div>
+<input *ngIf="data" type="text" [(ngModel)]="data.value">
+<br/>
+<div>data binding with action</div>
+<input *ngIf="dataNoAsync" type="text" [value]="dataNoAsync.value">
+<br/>
+
+<div>double data binding with action</div>
+<input *ngIf="dataAsync" type="text" [value]="dataAsync.value" (keyup)="change($event.target.value)">
+<br/>
+
+<div>action when input change: letter change</div>
+<div>{{letter}}</div>

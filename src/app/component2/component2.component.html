@@ -1,1 +1,7 @@
-<input type="text" placeholder="your text here" [(ngModel)]="data.value">
+
+<div>double data binding without action</div>
+<input type="text" [(ngModel)]="data.value">
+<br/>
+
+<div>double data binding with action</div>
+<input type="text" [value]="data.value" (keyup)="change($event.target.value)">

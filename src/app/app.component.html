@@ -1,10 +1,8 @@
+<div>Component</div>
+<app-component1 *ngIf="data3" [data]="data | async" [data2]="(data2 | async)?.value" [data3]="data3"></app-component1>
 
-<p>children component</p>
-<div class="children-component">
-  <app-component1 [data]="data | async"></app-component1>
-</div>
 
-<p>component in route</p>
-<div class="component-in-route">
-  <router-outlet (activate)='onActivate($event)'></router-outlet>
-</div>
+<br><br><br>
+<div>route</div>
+<router-outlet (activate)='onActivate($event)'></router-outlet>
+
